@@ -5,6 +5,7 @@ services:
     ports:
       - 80:80
       - 443:443
+      - 5000:5000
     volumes:
       - ./conf/nginx:/etc/nginx/conf.d
       - ./data/certs:/certs
@@ -27,7 +28,7 @@ services:
     environment:
       - LOGFILE=/var/log/letsencrypt/certrenewal.log
       - DEBUG=false
-      - STAGING=true
+      - STAGING=false
       - HEALTH_CHECK_URL=${DOCKER_REGISTRY_DOMAIN_NAME}:80
       - DOMAINS=${DOCKER_REGISTRY_DOMAIN_NAME}
       - EMAIL=${DOCKER_REGISTRY_CERT_EMAIL_ADDRESS}
@@ -35,7 +36,7 @@ services:
   registry:
     image: registry:2
     ports:
-      - 127.0.0.1:5000:5000
+      - 127.0.0.1:5001:5000
     volumes:
       - ./data/registry:/var/lib/registry
     restart: always
