@@ -1,3 +1,9 @@
+# WARNING: publicly readable
+
+I modified this to produce a publicly readable registry.
+
+
+
 # Docker Registry with Letsencrypt Certificates
 
 This service stack issues [letsencrypt](https://letsencrypt.org/) certificates and starts a docker registry
@@ -109,5 +115,4 @@ certificates to `/etc/apache2/server.key` and `/etc/apache2/server.crt` and set 
     volumes:
       - ./certs/server.key:/etc/apache2/server.key:ro
       - ./certs/server.crt:/etc/apache2/server.crt:ro
-      
       

@@ -39,12 +39,3 @@ services:
     volumes:
       - ./data/registry:/var/lib/registry
     restart: always
-  registryui:
-    image: konradkleine/docker-registry-frontend:v2
-    ports:
-      - 444:443
-    environment:
-      - ENV_DOCKER_REGISTRY_HOST=${DOCKER_REGISTRY_DOMAIN_NAME}
-      - ENV_DOCKER_REGISTRY_PORT=443
-      - ENV_DOCKER_REGISTRY_USE_SSL=1
-    restart: always
